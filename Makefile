@@ -7,7 +7,7 @@ COMPOSER=symfony composer
 CONSOLE=${SYMFONY} console
 export COMPOSE_PROJECT_NAME=sylius_cms_block_plugin
 PLUGIN_NAME=sylius-cms-block-plugin
-COMPOSE=docker-compose
+COMPOSE=docker compose
 YARN=yarn
 DOCTRINE_MIGRATIONS_NAMESPACE=MonsieurBiz\SyliusCmsBlockPlugin\Migrations
 
