@@ -9,8 +9,6 @@ jobs:
 
     php:
 
-        name: Quality tests (PHP ${{ matrix.php }})
-
         runs-on: ubuntu-latest
 
         strategy:
@@ -19,6 +17,7 @@ jobs:
                 php: ['8.2']
 
         env:
+            SYMFONY_ARGS: --no-tls
             COMPOSER_ARGS: --prefer-dist
             DOCKER_INTERACTIVE_ARGS: -t
 
@@ -39,7 +38,7 @@ jobs:
 
             - name: Set project php-version
               run: |
-                  echo ${{ matrix.php }} > .php-version
+                  echo "${{ matrix.php }}" > .php-version
 
             - name: Determine composer cache directory
               id: composer-cache-directory
@@ -50,7 +49,7 @@ jobs:
               id: cache-composer
               with:
                   path: ${{ steps.composer-cache-directory.outputs.directory }}
-                  key: composer2-php:${{ matrix.php }}-${{ hashFiles('**/composer.json') }}
+                  key: composer2-php:${{ matrix.php }}-${{ github.sha }}
                   restore-keys: composer2-php:${{ matrix.php }}-
 
             - name: Ensure that composer cache directory exists
@@ -68,6 +67,8 @@ jobs:
             - run: make test.phpstan
 
             - run: make test.phpmd
+
+            - run: make test.phpspec
 
             - run: make test.yaml
 
