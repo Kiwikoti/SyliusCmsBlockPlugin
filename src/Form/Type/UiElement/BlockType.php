@@ -47,7 +47,7 @@ final class BlockType extends AbstractType
                 },
                 'class' => Block::class,
                 'multiple' => false,
-                'choice_label' => fn (BlockInterface $block): string => sprintf('[%s] %s', $block->getCode(), $block->getName()),
+                'choice_label' => fn (BlockInterface $block): string => \sprintf('[%s] %s', $block->getCode(), $block->getName()),
                 'query_builder' => function (BlockRepository $blockRepository) {
                     return $blockRepository->createListQueryBuilder($this->localeContext->getLocaleCode())
                         ->addOrderBy('o.code', 'ASC')
