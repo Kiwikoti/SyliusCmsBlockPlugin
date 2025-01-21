@@ -6,10 +6,11 @@
 
 ## Compatibility
 
-| Sylius Version | PHP Version |
-|---|-------------|
-| 1.12 | 8.2         |
-| 1.13 | 8.2         |
+| Sylius Version | PHP Version     |
+|----------------|-----------------|
+| 1.12           | 8.2 - 8.3       |
+| 1.13           | 8.2 - 8.3       |
+| 1.14           | 8.2 - 8.3       |
 
 ## Installation
 
