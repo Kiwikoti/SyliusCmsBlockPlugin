@@ -18,13 +18,22 @@ use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class BlockRepository extends EntityRepository implements BlockRepositoryInterface
 {
-    public function createListQueryBuilder(string $localeCode): QueryBuilder
+    public function createListQueryBuilder(string $localeCode, ?string $fallbackLocaleCode = null): QueryBuilder
     {
-        return $this->createQueryBuilder('o')
+        $queryBuilder = $this->createQueryBuilder('o')
             ->addSelect('translation')
             ->leftJoin('o.translations', 'translation', 'WITH', 'translation.locale = :localeCode')
             ->setParameter('localeCode', $localeCode)
         ;
+        if (null !== $fallbackLocaleCode && $fallbackLocaleCode !== $localeCode) {
+            $queryBuilder
+                ->addSelect('fallbackTranslation')
+                ->leftJoin('o.translations', 'fallbackTranslation', 'WITH', 'fallbackTranslation.locale = :fallbackLocaleCode')
+                ->setParameter('fallbackLocaleCode', $fallbackLocaleCode)
+            ;
+        }
+
+        return $queryBuilder;
     }
 
     /**

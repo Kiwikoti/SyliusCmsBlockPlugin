@@ -17,7 +17,7 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 
 interface BlockRepositoryInterface extends RepositoryInterface
 {
-    public function createListQueryBuilder(string $localeCode): QueryBuilder;
+    public function createListQueryBuilder(string $localeCode, ?string $fallbackLocaleCode = null): QueryBuilder;
 
     public function findOneEnabledByCode(string $code): ?BlockInterface;
 }
