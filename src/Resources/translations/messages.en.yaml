@@ -7,6 +7,7 @@ monsieurbiz_cms_block:
     cms_content: "CMS content"
     blocks_subheader: "CMS block management"
     back_to_admin: "Back to admin"
+    block_not_found: 'Block "%name%" not found.'
     form:
       block_info: 'Block information'
       block_content: 'Block content'

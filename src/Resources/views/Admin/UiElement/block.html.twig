@@ -10,4 +10,8 @@ element methods:
 {% set blockEntity = ui_element.getBlock(element.block) %}
 {% if blockEntity and blockEntity.enabled %}
     {{ blockEntity.content|monsieurbiz_richeditor_render_field }}
+{% else %}
+    <div class="ui orange message">
+        {{ 'monsieurbiz_cms_block.ui.block_not_found'|trans({'%name%': element.block}) }}
+    </div>
 {% endif %}

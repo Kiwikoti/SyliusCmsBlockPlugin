@@ -17,6 +17,7 @@ use MonsieurBiz\SyliusCmsBlockPlugin\Repository\BlockRepository;
 use MonsieurBiz\SyliusCmsBlockPlugin\Repository\BlockRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Form\DataTransformer\ResourceToIdentifierTransformer;
 use Sylius\Component\Locale\Context\LocaleContextInterface;
+use Sylius\Resource\Translation\Provider\TranslationLocaleProviderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,6 +29,7 @@ final class BlockType extends AbstractType
     public function __construct(
         private BlockRepositoryInterface $blockRepository,
         private LocaleContextInterface $localeContext,
+        private TranslationLocaleProviderInterface $translationLocaleProvider,
     ) {
     }
 
@@ -49,7 +51,7 @@ final class BlockType extends AbstractType
                 'multiple' => false,
                 'choice_label' => fn (BlockInterface $block): string => \sprintf('[%s] %s', $block->getCode(), $block->getName()),
                 'query_builder' => function (BlockRepository $blockRepository) {
-                    return $blockRepository->createListQueryBuilder($this->localeContext->getLocaleCode())
+                    return $blockRepository->createListQueryBuilder($this->localeContext->getLocaleCode(), $this->translationLocaleProvider->getDefaultLocaleCode())
                         ->addOrderBy('o.code', 'ASC')
                     ;
                 },
@@ -59,7 +61,7 @@ final class BlockType extends AbstractType
             ])
         ;
 
-        $reversedTransformer = new ReversedTransformer(new ResourceToIdentifierTransformer($this->blockRepository));
+        $reversedTransformer = new ReversedTransformer(new ResourceToIdentifierTransformer($this->blockRepository, 'code'));
         $builder->get('block')->addModelTransformer($reversedTransformer);
     }
 }
