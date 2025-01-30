@@ -61,7 +61,7 @@ final class BlockType extends AbstractType
             ])
         ;
 
-        $reversedTransformer = new ReversedTransformer(new ResourceToIdentifierTransformer($this->blockRepository));
+        $reversedTransformer = new ReversedTransformer(new ResourceToIdentifierTransformer($this->blockRepository, 'code'));
         $builder->get('block')->addModelTransformer($reversedTransformer);
     }
 }

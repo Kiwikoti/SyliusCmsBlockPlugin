@@ -39,13 +39,34 @@ class BlockRepository extends EntityRepository implements BlockRepositoryInterfa
     /**
      * @throws NonUniqueResultException
      */
-    public function findOneEnabledByCode(string $code): ?BlockInterface
+    public function findOneEnabledByCode(string $code, ?string $locale = null, ?string $fallbackLocaleCode = null): ?BlockInterface
     {
-        /** @phpstan-ignore-next-line */
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.code = :code')
-            ->andWhere('b.enabled = true')
+        $queryBuilder = $locale ? $this->createListQueryBuilder($locale, $fallbackLocaleCode) : $this->createQueryBuilder('o');
+
+        /** @var ?BlockInterface */
+        return $queryBuilder
+            ->andWhere('o.code = :code')
+            ->andWhere('o.enabled = true')
             ->setParameter('code', $code)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findOneEnabledByIdentifier(string $identifier, ?string $locale = null, ?string $fallbackLocaleCode = null): ?BlockInterface
+    {
+        $block = $this->findOneEnabledByCode($identifier, $locale, $fallbackLocaleCode);
+        if (null !== $block) {
+            return $block;
+        }
+
+        $queryBuilder = $locale ? $this->createListQueryBuilder($locale, $fallbackLocaleCode) : $this->createQueryBuilder('o');
+
+        /** @var ?BlockInterface */
+        return $queryBuilder
+            ->andWhere('o.id = :id')
+            ->andWhere('o.enabled = true')
+            ->setParameter('id', $identifier)
             ->getQuery()
             ->getOneOrNullResult()
         ;
