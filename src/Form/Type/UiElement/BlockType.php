@@ -42,11 +42,6 @@ final class BlockType extends AbstractType
             ->add('block', EntityType::class, [
                 'label' => 'monsieurbiz_cms_block.ui.block',
                 'required' => true,
-                'getter' => function (array $data) {
-                    // Retrieve the entity with our repository to avoid 500 if we try to load a deleted one
-                    // In this case it will return null if not found with the given code instead of an exception.
-                    return $this->blockRepository->find($data['block']);
-                },
                 'class' => Block::class,
                 'multiple' => false,
                 'choice_label' => fn (BlockInterface $block): string => \sprintf('[%s] %s', $block->getCode(), $block->getName()),
@@ -62,6 +57,13 @@ final class BlockType extends AbstractType
         ;
 
         $reversedTransformer = new ReversedTransformer(new ResourceToIdentifierTransformer($this->blockRepository, 'code'));
+
+        // Backward compatibility with old format with ID
+        /** @phpstan-ignore-next-line */
+        if (\is_int($options['data']['block'] ?? null)) {
+            $reversedTransformer = new ReversedTransformer(new ResourceToIdentifierTransformer($this->blockRepository));
+        }
+
         $builder->get('block')->addModelTransformer($reversedTransformer);
     }
 }
