@@ -10,6 +10,7 @@ monsieurbiz_cms_block:
     block_not_found: 'Block "%name%" not found.'
     edit_block_link: 'Edit bloc «%blockName%»'
     form:
+      id: 'ID'
       block_info: 'Block information'
       block_content: 'Block content'
       enabled: "Enabled"
