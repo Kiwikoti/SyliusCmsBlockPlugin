@@ -9,7 +9,13 @@ element methods:
 
 {% set blockEntity = ui_element.getBlock(element.block) %}
 {% if blockEntity and blockEntity.enabled %}
-    {{ blockEntity.content|monsieurbiz_richeditor_render_field }}
+    <a href="{{ path('monsieurbiz_cms_block_admin_block_update', {id: blockEntity.id}) }}" class="ui button labeled icon" style="margin-bottom: 20px;">
+        <i class="pencil icon"></i>
+        {{ 'monsieurbiz_cms_block.ui.edit_block_link'|trans({'%blockName%': blockEntity.name}) }}
+    </a>
+    <div style="border: 2px dashed rgba(34,36,38,0.38); padding: 10px;">
+        {{ blockEntity.content|monsieurbiz_richeditor_render_field }}
+    </div>
 {% else %}
     <div class="ui orange message">
         {{ 'monsieurbiz_cms_block.ui.block_not_found'|trans({'%name%': element.block}) }}
