@@ -8,7 +8,9 @@ monsieurbiz_cms_block:
     blocks_subheader: "Gestion des blocs CMS"
     back_to_admin: "Retour à l'administration"
     block_not_found: 'Le bloc "%name%" n''a pas été trouvé.'
+    edit_block_link: 'Modifier le bloc «%blockName%»'
     form:
+      id: 'ID'
       block_info: 'Informations sur le bloc'
       block_content: 'Contenu du bloc'
       enabled: "Activé"
