@@ -1,0 +1,73 @@
+sylius_twig_hooks:
+    hooks:
+        # Create block
+        'sylius_admin.block.create.content':
+            form:
+                component: 'sylius_admin:monsieurbiz_cms_block:block:form'
+                props:
+                    resource: '@=_context.resource'
+                    form: '@=_context.form'
+                    template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form.html.twig'
+                priority: 0
+
+        'sylius_admin.block.create.content.form.sections':
+            general:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/general.html.twig'
+                priority: 200
+            translations:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/translations.html.twig'
+                priority: 100
+
+        'sylius_admin.block.create.content.form.sections.general':
+            default:
+                enabled: false
+            enabled:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/general/enabled.html.twig'
+                priority: 300
+            code:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/general/code.html.twig'
+                priority: 200
+
+        'sylius_admin.block.create.content.form.sections.translations':
+            name:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/translations/name.html.twig'
+                priority: 200
+            content:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/translations/content.html.twig'
+                priority: 100
+
+        # Edit block
+        'sylius_admin.block.update.content':
+            form:
+                component: 'sylius_admin:monsieurbiz_cms_block:block:form'
+                props:
+                    resource: '@=_context.resource'
+                    form: '@=_context.form'
+                    template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form.html.twig'
+                priority: 0
+
+        'sylius_admin.block.update.content.form.sections':
+            general:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/general.html.twig'
+                priority: 200
+            translations:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/translations.html.twig'
+                priority: 100
+
+        'sylius_admin.block.update.content.form.sections.general':
+            default:
+                enabled: false
+            enabled:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/general/enabled.html.twig'
+                priority: 300
+            code:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/general/code.html.twig'
+                priority: 200
+
+        'sylius_admin.block.update.content.form.sections.translations':
+            name:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/translations/name.html.twig'
+                priority: 200
+            content:
+                template: '@MonsieurBizSyliusCmsBlockPlugin/admin/block/form/sections/translations/content.html.twig'
+                priority: 100

@@ -21,3 +21,15 @@ services:
         arguments:
             $dataClass: '%monsieurbiz_cms_block.model.block_translation.class%'
             $validationGroups: ['monsieurbiz']
+
+    # Live components
+    sylius_admin.monsieurbiz_block.twig.component.block.form:
+        autoconfigure: false
+        class: Sylius\Bundle\UiBundle\Twig\Component\ResourceFormComponent
+        arguments:
+            - '@monsieurbiz_cms_block.repository.block'
+            - '@form.factory'
+            - '%monsieurbiz_cms_block.model.block.class%'
+            - 'MonsieurBiz\SyliusCmsBlockPlugin\Form\Type\BlockType'
+        tags:
+            - { name: 'sylius.live_component.admin', key: 'sylius_admin:monsieurbiz_cms_block:block:form' }

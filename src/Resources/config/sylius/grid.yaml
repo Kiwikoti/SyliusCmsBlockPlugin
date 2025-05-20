@@ -29,7 +29,9 @@ sylius_grid:
                     label: monsieurbiz_cms_block.ui.form.enabled
                     sortable: ~
                     options:
-                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+                        template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"
+                        vars:
+                            th_class: "text-center"
             actions:
                 main:
                     create:
