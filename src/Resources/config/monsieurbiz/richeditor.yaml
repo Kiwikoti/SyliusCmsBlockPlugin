@@ -11,5 +11,5 @@ monsieurbiz_sylius_richeditor:
                 form: MonsieurBiz\SyliusCmsBlockPlugin\Form\Type\UiElement\BlockType
                 ui_element: MonsieurBiz\SyliusCmsBlockPlugin\UiElement\BlockUiElement
             templates:
-                admin_render: '@MonsieurBizSyliusCmsBlockPlugin/Admin/UiElement/block.html.twig'
-                front_render: '@MonsieurBizSyliusCmsBlockPlugin/Shop/UiElement/block.html.twig'
+                admin_render: '@MonsieurBizSyliusCmsBlockPlugin/admin/uielement/block.html.twig'
+                front_render: '@MonsieurBizSyliusCmsBlockPlugin/shop/uielement/block.html.twig'
