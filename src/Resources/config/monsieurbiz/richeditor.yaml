@@ -4,7 +4,7 @@ monsieurbiz_sylius_richeditor:
             alias: block
             title: 'monsieurbiz_cms_block.ui_element.block.title'
             description: 'monsieurbiz_cms_block.ui_element.block.description'
-            icon: 'expand'
+            icon: majesticons:code-block-line
             wireframe: block
             tags: [ default, block ]
             classes:

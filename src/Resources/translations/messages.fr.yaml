@@ -21,5 +21,5 @@ monsieurbiz_cms_block:
       create: 'Créer un nouveau bloc'
   ui_element:
     block:
-      title: 'Lame Bloc'
+      title: 'Bloc'
       description: 'Une lame contenant un bloc CMS'
