@@ -74,7 +74,7 @@ Manage the content of your block, you can decide to disable or enable it to disp
 For example in your [Homepage](https://github.com/monsieurbiz/SyliusHomepagePlugin) ou [CMS Page](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/), 
 by using `block` element in your [Rich Editor](https://github.com/monsieurbiz/SyliusRichEditorPlugin/).
 
-![Block element in rich editor](images/ui-element-card.jpg)
+![Block element in rich editor](images/ui-element-card.png)
 
 ### Displays in front
 
