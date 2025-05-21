@@ -36,7 +36,6 @@ final class AdminMenuListener
                 'monsieurbiz_cms_block_admin_block_update',
             ]]])
             ->setLabel('monsieurbiz_cms_block.ui.blocks')
-            ->setLabelAttribute('icon', 'tabler:blocks')
         ;
     }
 }
