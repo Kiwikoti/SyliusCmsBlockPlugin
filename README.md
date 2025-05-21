@@ -1,4 +1,4 @@
-<h1 align="center">Sylius Cms Block Plugin</h1>
+<h1 align="center">Sylius CMS Blocks</h1>
 
 [![Tests Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusCmsBlockPlugin/tests.yaml?branch=master&logo=github)](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/actions?query=workflow%3ATests)
 [![Recipe Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusCmsBlockPlugin/recipe.yaml?branch=master&label=recipes&logo=github)](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/actions?query=workflow%3ASecurity)
@@ -61,33 +61,26 @@ bin/console doctrine:migrations:migrate
 
 Manage your block in admin
 
-![Grid of blocks in Sylius admin](images/blocks-list.jpg)
+![Grid of blocks in Sylius admin](images/admin-list.jpg)
 
 ### Admin form
 
 Manage the content of your block, you can decide to disable or enable it to display it anywhere you used it.
 
-![Form of a block in Sylius Admin](images/block-form.jpg)
+![Form of a block in Sylius Admin](images/admin-form.jpg)
 
 ### Include it in your content
 
-For example in your [Homepage](https://github.com/monsieurbiz/SyliusHomepagePlugin) ou [CMS Page](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/) !
+For example in your [Homepage](https://github.com/monsieurbiz/SyliusHomepagePlugin) ou [CMS Page](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/), 
+by using `block` element in your [Rich Editor](https://github.com/monsieurbiz/SyliusRichEditorPlugin/).
 
-![Block included in a homepage content](images/block-included.jpg)
-
-By using `block` element in your [Rich Editor](https://github.com/monsieurbiz/SyliusRichEditorPlugin/).
-
-![Block element in rich editor](images/block-ui-element.jpg)
-
-Chose the block you want to include in your content.
-
-![Block element in rich editor](images/choose-block.jpg)
+![Block element in rich editor](images/ui-element-card.jpg)
 
 ### Displays in front
 
 You can use it in multiple places, it will shown the same content everywhere.
 
-![Block displayed in front](images/block-front.jpg)
+![Block displayed in front](images/front-example.jpg)
 
 If you disable the block, it will not be displayed anymore.
 
