@@ -23,6 +23,9 @@ composer config --no-plugins --json extra.symfony.endpoint '["https://api.github
 ```bash
 composer require monsieurbiz/sylius-cms-block-plugin
 ```
+
+If you do not use the recipes :
+
 Change your `config/bundles.php` file to add the line for the plugin :
 ```php
 <?php
@@ -41,17 +44,17 @@ Finally import the routes in `config/routes/monsieurbiz_sylius_cms_block_plugin.
 imports:
     resource: '@MonsieurBizSyliusCmsBlockPlugin/Resources/config/routes.yaml'
 ```
+
+If you want to have the wireframe of `block` element in the Rich Editor, copy the file : 
+
+```bash
+cp vendor/monsieurbiz/sylius-cms-block-plugin/src/Resources/views/wireframe/block.svg.twig templates/bundles/MonsieurBizSyliusRichEditorPlugin/Wireframe/block.svg.twig
+```
+
 ### Migrations
+
 First, please run legacy-versioned migrations by using command :
 ```bash
-bin/console doctrine:migrations:migrate
-```
-After migration, please create a new diff migration :
-```php
-bin/console doctrine:migrations:diff
-```
-Then run it (if any) :
-```php
 bin/console doctrine:migrations:migrate
 ```
 
