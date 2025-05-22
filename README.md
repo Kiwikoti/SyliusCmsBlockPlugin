@@ -1,4 +1,4 @@
-<h1 align="center">Sylius Cms Block Plugin</h1>
+<h1 align="center">Sylius CMS Blocks</h1>
 
 [![Tests Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusCmsBlockPlugin/tests.yaml?branch=master&logo=github)](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/actions?query=workflow%3ATests)
 [![Recipe Status](https://img.shields.io/github/actions/workflow/status/monsieurbiz/SyliusCmsBlockPlugin/recipe.yaml?branch=master&label=recipes&logo=github)](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/actions?query=workflow%3ASecurity)
@@ -8,9 +8,9 @@
 
 | Sylius Version | PHP Version     |
 |----------------|-----------------|
-| 1.12           | 8.2 - 8.3       |
-| 1.13           | 8.2 - 8.3       |
-| 1.14           | 8.2 - 8.3       |
+| 2.0            | 8.2 - 8.3       |
+
+ℹ️ For Sylius 1.x, see our [1.x branch](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/tree/1.x) and all 1.x releases.
 
 ## Installation
 
@@ -23,6 +23,9 @@ composer config --no-plugins --json extra.symfony.endpoint '["https://api.github
 ```bash
 composer require monsieurbiz/sylius-cms-block-plugin
 ```
+
+If you do not use the recipes :
+
 Change your `config/bundles.php` file to add the line for the plugin :
 ```php
 <?php
@@ -41,17 +44,17 @@ Finally import the routes in `config/routes/monsieurbiz_sylius_cms_block_plugin.
 imports:
     resource: '@MonsieurBizSyliusCmsBlockPlugin/Resources/config/routes.yaml'
 ```
+
+If you want to have the wireframe of `block` element in the Rich Editor, copy the file : 
+
+```bash
+cp vendor/monsieurbiz/sylius-cms-block-plugin/src/Resources/views/wireframe/block.svg.twig templates/bundles/MonsieurBizSyliusRichEditorPlugin/Wireframe/block.svg.twig
+```
+
 ### Migrations
+
 First, please run legacy-versioned migrations by using command :
 ```bash
-bin/console doctrine:migrations:migrate
-```
-After migration, please create a new diff migration :
-```php
-bin/console doctrine:migrations:diff
-```
-Then run it (if any) :
-```php
 bin/console doctrine:migrations:migrate
 ```
 
@@ -61,33 +64,26 @@ bin/console doctrine:migrations:migrate
 
 Manage your block in admin
 
-![Grid of blocks in Sylius admin](images/blocks-list.jpg)
+![Grid of blocks in Sylius admin](images/admin-list.jpg)
 
 ### Admin form
 
 Manage the content of your block, you can decide to disable or enable it to display it anywhere you used it.
 
-![Form of a block in Sylius Admin](images/block-form.jpg)
+![Form of a block in Sylius Admin](images/admin-form.jpg)
 
 ### Include it in your content
 
-For example in your [Homepage](https://github.com/monsieurbiz/SyliusHomepagePlugin) ou [CMS Page](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/) !
+For example in your [Homepage](https://github.com/monsieurbiz/SyliusHomepagePlugin) ou [CMS Page](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/), 
+by using `block` element in your [Rich Editor](https://github.com/monsieurbiz/SyliusRichEditorPlugin/).
 
-![Block included in a homepage content](images/block-included.jpg)
-
-By using `block` element in your [Rich Editor](https://github.com/monsieurbiz/SyliusRichEditorPlugin/).
-
-![Block element in rich editor](images/block-ui-element.jpg)
-
-Chose the block you want to include in your content.
-
-![Block element in rich editor](images/choose-block.jpg)
+![Block element in rich editor](images/ui-element-card.png)
 
 ### Displays in front
 
 You can use it in multiple places, it will shown the same content everywhere.
 
-![Block displayed in front](images/block-front.jpg)
+![Block displayed in front](images/front-example.jpg)
 
 If you disable the block, it will not be displayed anymore.
 

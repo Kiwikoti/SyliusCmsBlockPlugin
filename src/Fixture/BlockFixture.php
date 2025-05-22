@@ -18,9 +18,9 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 class BlockFixture extends AbstractResourceFixture
 {
-    public function __construct(EntityManagerInterface $pageManager, BlockFixtureFactoryInterface $exampleFactory)
+    public function __construct(EntityManagerInterface $blockManager, BlockFixtureFactoryInterface $exampleFactory)
     {
-        parent::__construct($pageManager, $exampleFactory);
+        parent::__construct($blockManager, $exampleFactory);
     }
 
     public function getName(): string

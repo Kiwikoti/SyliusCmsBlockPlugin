@@ -3,15 +3,8 @@ monsieurbiz_sylius_cms_block_admin:
     resource: |
         alias: monsieurbiz_cms_block.block
         section: admin
-        templates: "@SyliusAdmin\\Crud"
+        templates: "@SyliusAdmin\\shared\\crud"
         except: ['show']
         redirect: update
         grid: monsieurbiz_cms_block
-        vars:
-            all:
-                subheader: monsieurbiz_cms_block.ui.blocks_subheader
-                templates:
-                    form: "@MonsieurBizSyliusCmsBlockPlugin/Admin/Block/_form.html.twig"
-            index:
-                icon: 'expand'
     type: sylius.resource
