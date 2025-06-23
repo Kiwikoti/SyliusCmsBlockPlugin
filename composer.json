@@ -7,7 +7,7 @@
     "require": {
         "monsieurbiz/sylius-rich-editor-plugin": "^3.0",
         "php": "^8.2",
-        "sylius/sylius": "~2.0.0"
+        "sylius/sylius": "~2.0"
     },
     "require-dev": {
         "behat/behat": "^3.6.1",
