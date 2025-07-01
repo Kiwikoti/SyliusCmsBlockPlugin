@@ -8,7 +8,7 @@
 
 | Sylius Version | PHP Version |
 |----------------|-------------|
-| 2.0, 2,1       | 8.2 - 8.3   |
+| 2.0, 2.1       | 8.2 - 8.3   |
 
 ℹ️ For Sylius 1.x, see our [1.x branch](https://github.com/monsieurbiz/SyliusCmsBlockPlugin/tree/1.x) and all 1.x releases.
 
